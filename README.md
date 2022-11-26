@@ -1,4 +1,5 @@
 *****TOOK almost 4 hour
+
 The API has to have for the following list:
 - (GET) localhost:8085/API/V1/employees
   o Gives back all of the records of the table.
@@ -18,6 +19,7 @@ The API has to have for the following list:
 
 
 *****TOOK almost 4 hour
+
   Bonus tasks for Juniors (Mandatory for Mediors and Seniors):
 - Set the API to be able to handle calls from localhost:5000 (CORS).
 - Extend the existing EMPLOYEES table, using Liquibase, with a Boolean, not null
@@ -27,6 +29,7 @@ The API has to have for the following list:
 
 
 *****TOOK almost 4 hour
+
 - Bonus tasks for Mediors (Mandatory for Seniors):
 - Implementing Custom Exception handling.
 - Configure the Spring Security. Method level security and different ROLEs are
