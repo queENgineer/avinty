@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "64cc16e5-bb73-4e1c-a855-36de895c997b",
+		"name": "avinty-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5131856"
+	},
+	"item": [
+		{
+			"name": "Get All Employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "tugba",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6ImNvbS5hdmludHkuaHIiLCJpYXQiOjE2Njk0OTI0OTUsImV4cCI6MTY2OTQ5Mjc5NX0.WMIXmFYV2CL1tCgSaQJju84seAg3npZWCYncosoRkyk",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:5000",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/API/V1/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Departments (Includes related Employees)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6ImNvbS5hdmludHkuaHIiLCJpYXQiOjE2Njk0OTI0OTUsImV4cCI6MTY2OTQ5Mjc5NX0.WMIXmFYV2CL1tCgSaQJju84seAg3npZWCYncosoRkyk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8085/API/V1/dept-emp",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"dept-emp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Departments By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/API/V1/department?name=23",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"department"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "http://localhost:5000",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"email\": \"tgb@boun.edu.tr\",\r\n            \"password\": \"Geeks@portal20\",\r\n            \"fullName\": \"tgb korkmaz\",\r\n            \"departmentId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/API/V1/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Department",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6ImNvbS5hdmludHkuaHIiLCJpYXQiOjE2NjkyMjU2MzYsImV4cCI6MTY2OTIyNTkzNn0.JvPt84eXE9oKS5J67ip4SIQiWmZ9-HCVp-xpe87wfHc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8085/API/V1/department/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"department",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"username\": \"admin\",\r\n            \"password\": \"123\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/API/V1/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"API",
+						"V1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
