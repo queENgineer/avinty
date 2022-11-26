@@ -1,0 +1,20 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1
+          author: tugbakorkmaz
+          preConditions:
+              - onFail: MARK_RAN
+                tableExists:
+                        tableName: EMPLOYEES
+                        schemaName: PUBLIC
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: is_active
+                              type: boolean
+                    tableName: EMPLOYEES
+                    schemaName: PUBLIC
+

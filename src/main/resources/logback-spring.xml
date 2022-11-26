@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextName>hr_app</contextName>
+
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} [%clr(%-15.15t{14}){faint}][%clr(%-5level)][%clr(%-28.28logger{0}){cyan}] - [%clr(%-8.8(${serverName:-${HOSTNAME}})){blue}] - [%clr(user:%X{user}){magenta}] %clr(:){faint} %m%n%wex"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-8.8t{14}][%-5level][%-25.25logger{0}] - [%-10.10(${serverName:-${HOSTNAME}})] : %m%n%wex"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <springProperty scope="context" name="serverName" source="HOSTNAME" />
+    <jmxConfigurator/>
+
+    <property name="LOG_FOLDER" value="log"/>
+
+    <appender name="app" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.folder}/hr_app.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${FILE_LOG_PATTERN}</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.folder}/oldlogs/hr_app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>250MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.folder}/hr_error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${log.folder}/oldlogs/hr_error_%d{yyyy-MM-dd}.%i.log.gz
+            </fileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>250MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date [%thread] %level %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+
+    <root level="INFO" additivity="false">
+        <appender-ref ref="app"/>
+    </root>
+
+    <root level="ERROR" additivity="false">
+        <appender-ref ref="error"/>
+    </root>
+
+
+    <logger name="org.springframework" additivity="false">
+        <appender-ref ref="error"/>
+    </logger>
+
+    <logger name="com.avinty" level="INFO"/>
+    <logger name="org.hibernate.orm.deprecation" level="ERROR"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="javax" level="INFO"/>
+
+</configuration>
