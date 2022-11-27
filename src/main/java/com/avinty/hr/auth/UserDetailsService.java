@@ -50,6 +50,7 @@ public class UserDetailsService implements org.springframework.security.core.use
         
         
         });
+        
         users.put("user", new Pair<String, String[]>() {
         
         
@@ -65,7 +66,7 @@ public class UserDetailsService implements org.springframework.security.core.use
         
             @Override
             public String[] getRight() {
-                String[] roles=new  String[0] ;
+                String[] roles=new  String[1] ;
                 roles[0]="USER";
                 return roles;
             }

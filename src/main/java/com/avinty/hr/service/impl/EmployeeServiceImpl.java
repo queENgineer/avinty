@@ -59,6 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		EmployeesDto employeesDto=new EmployeesDto();
 		employeesDto.setEmail(request.getEmail());
 		employeesDto.setDepartmentId(request.getDepartmentId());
+		employeesDto.setFullName(request.getFullName());
 		employeesDto.setEmail(request.getEmail());
 		employeesDto.setPassword(request.getPassword());
 		employeesDto.setCreatedAt(Timestamp.from(ZonedDateTime.now().toInstant()));
