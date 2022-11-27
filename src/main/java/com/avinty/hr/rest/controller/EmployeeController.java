@@ -60,7 +60,7 @@ public class EmployeeController {
 		return ResponseEntity.ok(response);
 	}
 	
-	//@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(path = "/employees",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SaveEmployeeResponse> saveEmployee(@Valid @RequestBody SaveEmployeeRequest saveEmployeeRequest){
 		String txnId = UUID.randomUUID().toString();
