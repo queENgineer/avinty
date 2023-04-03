@@ -1,4 +1,3 @@
-*****TOOK almost 4 hour
 
 The API has to have for the following list:
 - (GET) localhost:8085/API/V1/employees
@@ -16,19 +15,9 @@ The API has to have for the following list:
   We are working with Rest API, so every communication must be done in JSON structure
   between the API and the client.
 
-
-
-*****TOOK almost 4 hour
-
   Bonus tasks for Juniors (Mandatory for Mediors and Seniors):
 - Set the API to be able to handle calls from localhost:5000 (CORS).
-- Extend the existing EMPLOYEES table, using Liquibase, with a Boolean, not null
-  column. The column name is: IS_ACTIVE.
- 
 
-
-
-*****TOOK almost 4 hour
 
 - Bonus tasks for Mediors (Mandatory for Seniors):
 - Implementing Custom Exception handling.
