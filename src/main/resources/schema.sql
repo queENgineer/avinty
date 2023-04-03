@@ -1,5 +1,5 @@
 
---drop table if exists  public.employees;
+drop table if exists  public.employees;
 
 create table if not exists public.employees
 (
@@ -15,8 +15,7 @@ create table if not exists public.employees
 
 );
 
-
---drop table if exists  public.departments;
+drop table if exists  public.departments;
 
 create table if not exists public.departments
 (
